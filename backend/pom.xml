@@ -13,8 +13,9 @@
 
     <properties>
         <jdk.version>1.8</jdk.version>
-        <nab.version>3.2</nab.version>
+        <nab.version>3.5.0</nab.version>
         <jersey.version>2.22.2</jersey.version>
+        <postgres.jdbc.version>42.2.1</postgres.jdbc.version>
     </properties>
 
 
@@ -48,6 +49,12 @@
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-json-jackson</artifactId>
             <version>${jersey.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgres.jdbc.version}</version>
         </dependency>
     </dependencies>
 

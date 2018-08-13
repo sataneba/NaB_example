@@ -37,10 +37,14 @@ public class EmployeeService {
 
   @Transactional
   public ResumeDto createResume(ResumeCreateDto resumeCreateDto) {
+    Employee e = employeeDao.getById(resumeCreateDto.employeeId);
+
     Resume resume = new Resume();
-    resume.setEmployee(employeeDao.getById(resumeCreateDto.employeeId));
     resume.setPosition(resumeCreateDto.position);
     resume.setAbout(resumeCreateDto.about);
+    resume.setEmployee(e);
+
+    e.getResumes().add(resume);
 
     resumeDao.save(resume);
     return new ResumeDto(resume);

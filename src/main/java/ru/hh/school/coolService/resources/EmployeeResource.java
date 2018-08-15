@@ -1,6 +1,5 @@
 package ru.hh.school.coolService.resources;
 
-import java.util.List;
 import javax.inject.Singleton;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -11,6 +10,7 @@ import javax.ws.rs.core.Response;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import ru.hh.school.coolService.dto.EmployeeCreateDto;
+import ru.hh.school.coolService.dto.EmployeeDto;
 import ru.hh.school.coolService.dto.ResumeCreateDto;
 import ru.hh.school.coolService.dto.ResumeDto;
 import ru.hh.school.coolService.services.EmployeeService;
@@ -30,7 +30,7 @@ public class EmployeeResource {
   @ResponseBody
   public Response getEmployee(@PathParam("id") Integer id) {
     return Response.status(Response.Status.OK)
-        .entity(employeeService.getEmployeeById(id))
+        .entity(new EmployeeDto(employeeService.getEmployeeById(id)))
         .build();
   }
 
@@ -40,7 +40,7 @@ public class EmployeeResource {
   @ResponseBody
   public Response createEmployee(@RequestBody EmployeeCreateDto employeeCreateDto){
     return Response.status(Response.Status.OK)
-        .entity(employeeService.createEmployee(employeeCreateDto))
+        .entity(new EmployeeDto(employeeService.createEmployee(employeeCreateDto)))
         .build();
   }
 
@@ -50,7 +50,7 @@ public class EmployeeResource {
   @ResponseBody
   public Response getResume(@PathParam("id") Integer id) {
     return Response.status(Response.Status.OK)
-        .entity(employeeService.getResumeById(id))
+        .entity(new ResumeDto(employeeService.getResumeById(id)))
         .build();
   }
 
@@ -60,7 +60,7 @@ public class EmployeeResource {
   @ResponseBody
   public Response createResume(@RequestBody ResumeCreateDto resumeCreateDto){
     return Response.status(Response.Status.OK)
-        .entity(employeeService.createResume(resumeCreateDto))
+        .entity(new ResumeDto(employeeService.createResume(resumeCreateDto)))
         .build();
   }
 

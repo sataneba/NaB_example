@@ -1,6 +1,5 @@
 package ru.hh.school.coolService.dto;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.List;
 import java.util.stream.Collectors;
 import ru.hh.school.coolService.entities.Employee;
@@ -10,7 +9,6 @@ public class EmployeeDto {
   public String firstName;
   public String lastName;
   public String email;
-  @JsonManagedReference
   public List<ResumeDto> resumes;
 
   public EmployeeDto(){
